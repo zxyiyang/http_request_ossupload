@@ -3,6 +3,9 @@
 const app = getApp()
 var uploadImage = require('../../utils/uploadFile.js');
 var util = require('../../utils/util.js');
+import {BookModel} from '../../models/book.js'
+const bookModel = new BookModel()
+
 
 Page({
    data: {
@@ -43,5 +46,10 @@ Page({
             }
          }
       })
-   }
+   },
+   getHotList(options) {
+      bookModel.getHotList().then(res =>{
+        console.log(res)
+      })
+    },
 })
